@@ -1,0 +1,5 @@
+default via 172.18.0.1 dev eth0 
+10.244.0.0/24 via 10.244.0.0 dev flannel.1 onlink 
+10.244.1.0/24 dev cni0 proto kernel scope link src 10.244.1.1 
+10.244.2.0/24 via 10.244.2.0 dev flannel.1 onlink 
+172.18.0.0/16 dev eth0 proto kernel scope link src 172.18.0.3 

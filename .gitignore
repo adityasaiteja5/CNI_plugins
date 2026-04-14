@@ -1,0 +1,17 @@
+# Binary files
+cilium
+scripts/cilium
+
+# Lock files and process IDs
+run_all.pid
+*.lock
+
+# Logs and temporary files
+*.log
+tmp/
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db

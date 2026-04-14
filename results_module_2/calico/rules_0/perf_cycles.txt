@@ -1,0 +1,11 @@
+# started on Mon Apr 13 05:32:50 2026
+
+
+ Performance counter stats for 'system wide':
+
+   496,636,831,154      cycles                                                                
+   317,999,628,546      instructions                     #    0.64  insn per cycle            
+                 0      cpu-clock                        #    0.000 CPUs utilized             
+
+      45.003020597 seconds time elapsed
+

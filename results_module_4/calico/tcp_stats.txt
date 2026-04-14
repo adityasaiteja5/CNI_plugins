@@ -1,0 +1,19 @@
+Connecting to host 10.96.120.183, port 5201
+State Recv-Q Send-Q Local Address:Port   Peer Address:Port                                                                                                                                                                                                                                                                                                                                                                                                                      
+ESTAB 0      0      10.244.151.66:46452 10.96.120.183:5201
+	 cubic wscale:10,10 rto:201 rtt:0.112/0.064 ato:40 mss:1398 pmtu:1450 rcvmss:536 advmss:1398 cwnd:10 bytes_sent:166 bytes_acked:167 bytes_received:4 segs_out:7 segs_in:7 data_segs_out:3 data_segs_in:4 send 999Mbps lastsnd:2003 lastrcv:2001 lastack:2001 pacing_rate 1.99Gbps delivery_rate 355Mbps delivered:4 app_limited busy:1ms rcv_space:13980 rcv_ssthresh:64138 minrtt:0.033 snd_wnd:64512 rcv_wnd:65536
+ESTAB 0      98304  10.244.151.66:46460 10.96.120.183:5201
+	 cubic wscale:10,10 rto:201 rtt:0.077/0.018 mss:1398 pmtu:1450 rcvmss:536 advmss:1398 cwnd:390 ssthresh:348 bytes_sent:3013738533 bytes_acked:3013671770 segs_out:2161343 segs_in:68501 data_segs_out:2161341 send 56.6Gbps lastrcv:2102 pacing_rate 66.6Gbps delivery_rate 8.52Gbps delivered:2161294 busy:2076ms rwnd_limited:1ms(0.0%) unacked:48 reordering:94 reord_seen:4 rcv_space:13980 rcv_ssthresh:64138 minrtt:0.03 snd_wnd:883712 rcv_wnd:65536
+[  5] local 10.244.151.66 port 46460 connected to 10.96.120.183 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec  1.34 GBytes  11.5 Gbits/sec    0    532 KBytes       
+[  5]   1.00-2.00   sec  1.13 GBytes  9.67 Gbits/sec    0    532 KBytes       
+[  5]   2.00-3.00   sec  1.24 GBytes  10.6 Gbits/sec    0    601 KBytes       
+[  5]   3.00-4.00   sec  1.19 GBytes  10.2 Gbits/sec    0    601 KBytes       
+[  5]   4.00-5.00   sec  1.24 GBytes  10.6 Gbits/sec    0    601 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-5.00   sec  6.59 GBytes  11.3 Gbits/sec    0            sender
+[  5]   0.00-5.00   sec  6.59 GBytes  11.3 Gbits/sec                  receiver
+
+iperf Done.

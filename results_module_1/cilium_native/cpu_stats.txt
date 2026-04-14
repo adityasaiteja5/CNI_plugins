@@ -1,0 +1,4 @@
+CONTAINER ID   NAME                       CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+e230076d2019   cni-cilium-worker          7.68%     523.9MiB / 15.04GiB   3.40%     579MB / 82.8GB   75.1MB / 1.83GB   225
+b898a2e8748c   cni-cilium-worker2         5.04%     363.8MiB / 15.04GiB   2.36%     388MB / 2.66MB   6MB / 1.55GB      178
+5fb7ae563b9d   cni-cilium-control-plane   21.24%    1.033GiB / 15.04GiB   6.87%     83.2GB / 135MB   153MB / 2.21GB    425

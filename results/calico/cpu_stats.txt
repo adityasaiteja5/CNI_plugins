@@ -1,0 +1,4 @@
+CONTAINER ID   NAME                       CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+8538edd6e61d   cni-calico-control-plane   11.33%    837.6MiB / 15.04GiB   5.44%     61.2GB / 121MB   37.5MB / 1.95GB   402
+3250ae305adf   cni-calico-worker2         4.97%     363.9MiB / 15.04GiB   2.36%     361MB / 2.48MB   2.46MB / 1.65GB   311
+b9a21c918405   cni-calico-worker          6.08%     537.7MiB / 15.04GiB   3.49%     558MB / 60.9GB   291kB / 2.1GB     480

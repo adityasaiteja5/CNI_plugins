@@ -1,0 +1,4 @@
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O        PIDS
+479fc7d24379   cni-flannel-worker          3.35%     171MiB / 15.04GiB     1.11%     268MB / 56.4GB   1.14MB / 507MB   150
+54925d7beaf4   cni-flannel-worker2         3.58%     173.2MiB / 15.04GiB   1.12%     89MB / 470kB     1.23MB / 440MB   162
+67ddbb79ea40   cni-flannel-control-plane   8.59%     482.9MiB / 15.04GiB   3.14%     56.5GB / 152MB   2.07MB / 835MB   262

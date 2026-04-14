@@ -1,0 +1,21 @@
+{
+    "scenario_name": "High-Throughput Enterprise Ingress (Medium Scale)",
+    "workload": {
+        "num_policies": 100,
+        "pps_millions": 5.0,
+        "topologies": [
+            "north_south"
+        ]
+    },
+    "hardware_profile": {
+        "system_ram_gb": 32,
+        "cpu_cores": 16
+    },
+    "research_priorities": {
+        "throughput": 10,
+        "latency": 5,
+        "security": 5,
+        "mttr": 2,
+        "observability": 4
+    }
+}

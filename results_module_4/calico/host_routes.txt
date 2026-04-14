@@ -1,0 +1,8 @@
+default via 172.18.0.1 dev eth0 
+10.244.68.128/26 via 172.18.0.4 dev eth0 proto 80 onlink 
+10.244.82.128/26 via 172.18.0.2 dev eth0 proto 80 onlink 
+blackhole 10.244.151.64/26 proto 80 
+10.244.151.65 dev calibb1ecea0a01 scope link 
+10.244.151.66 dev calid29bb980618 scope link 
+10.244.151.67 dev cali9ba81c7593e scope link 
+172.18.0.0/16 dev eth0 proto kernel scope link src 172.18.0.3 

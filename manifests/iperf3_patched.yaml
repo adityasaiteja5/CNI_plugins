@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iperf3-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iperf3-server
+  template:
+    metadata:
+      labels:
+        app: iperf3-server
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: cni-cilium-control-plane
+      containers:
+      - name: iperf3-server
+        image: quay.io/networkstatic/iperf3
+        args: ["-s"]
+        ports:
+        - containerPort: 5201
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iperf3-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iperf3-client
+  template:
+    metadata:
+      labels:
+        app: iperf3-client
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: cni-cilium-worker
+      containers:
+      - name: iperf3-client
+        image: nicolaka/netshoot
+        command: ["/bin/sh", "-c", "sleep infinity"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iperf3-service
+spec:
+  selector:
+    app: iperf3-server
+  ports:
+  - protocol: TCP
+    port: 5201
+    targetPort: 5201

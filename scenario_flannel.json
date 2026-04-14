@@ -1,0 +1,21 @@
+{
+    "scenario_name": "Resiliency-First Internal Cluster (Low Scale)",
+    "workload": {
+        "num_policies": 10,
+        "pps_millions": 1.0,
+        "topologies": [
+            "east_west"
+        ]
+    },
+    "hardware_profile": {
+        "system_ram_gb": 8,
+        "cpu_cores": 4
+    },
+    "research_priorities": {
+        "throughput": 3,
+        "latency": 5,
+        "security": 1,
+        "mttr": 10,
+        "observability": 2
+    }
+}

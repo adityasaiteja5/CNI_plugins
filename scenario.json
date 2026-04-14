@@ -1,0 +1,25 @@
+{
+    "scenario_name": "High-Density Enterprise Mesh Stress Test",
+    "workload": {
+        "num_policies": 1200,
+        "pps_millions": 8.5,
+        "topologies": [
+            "east_west",
+            "sidecar",
+            "burst",
+            "multi_tier"
+        ]
+    },
+    "hardware_profile": {
+        "system_ram_gb": 16,
+        "cpu_cores": 8,
+        "nic_speed_gbps": 10
+    },
+    "research_priorities": {
+        "throughput": 5,
+        "latency": 8,
+        "security": 10,
+        "mttr": 2,
+        "observability": 9
+    }
+}

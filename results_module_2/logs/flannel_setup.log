@@ -1,0 +1,19 @@
+--- Setup Phase for flannel ---
+Tearing down old clusters...
+Waiting 60s for deep stabilization...
+Creating cluster: cni-flannel...
+Waiting 90s for node stabilization...
+Restoring CNI plugins...
+--- Installing flannel (default) ---
+namespace/kube-flannel created
+clusterrole.rbac.authorization.k8s.io/flannel created
+clusterrolebinding.rbac.authorization.k8s.io/flannel created
+serviceaccount/flannel created
+configmap/kube-flannel-cfg created
+daemonset.apps/kube-flannel-ds created
+--- Deploying Workload ---
+node/cni-flannel-control-plane untainted
+deployment.apps/iperf3-server created
+deployment.apps/iperf3-client created
+pod/iperf3-server-cb7cd67b7-nwgqm condition met
+pod/iperf3-client-6667c9bf87-plm58 condition met

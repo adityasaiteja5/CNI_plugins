@@ -1,0 +1,91 @@
+--- Starting Benchmark for calico (bgp) ---
+Tearing down old cluster...
+Deleting cluster "cni-calico" ...
+Deleted nodes: ["cni-calico-control-plane" "cni-calico-worker2" "cni-calico-worker"]
+Deleted Networks:
+kind
+
+Waiting 60s for cleanup (deep stabilization)...
+Creating new cluster: cni-calico (with retry)
+Creating cluster "cni-calico" ...
+ • Ensuring node image (kindest/node:v1.29.2) 🖼  ...
+ ✓ Ensuring node image (kindest/node:v1.29.2) 🖼
+ • Preparing nodes 📦 📦 📦   ...
+ ✓ Preparing nodes 📦 📦 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Joining worker nodes 🚜  ...
+ ✓ Joining worker nodes 🚜
+Set kubectl context to "kind-cni-calico"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-cni-calico
+
+Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
+Waiting 90s for node and Docker stabilization...
+Restoring missing CNI plugins...
+namespace/tigera-operator created
+customresourcedefinition.apiextensions.k8s.io/bgpconfigurations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/bgpfilters.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/bgppeers.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/blockaffinities.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/caliconodestatuses.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/clusterinformations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/felixconfigurations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/globalnetworkpolicies.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/globalnetworksets.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/hostendpoints.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ipamblocks.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ipamconfigs.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ipamhandles.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ippools.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ipreservations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/kubecontrollersconfigurations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/networkpolicies.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/networksets.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/apiservers.operator.tigera.io created
+customresourcedefinition.apiextensions.k8s.io/imagesets.operator.tigera.io created
+customresourcedefinition.apiextensions.k8s.io/installations.operator.tigera.io created
+customresourcedefinition.apiextensions.k8s.io/tigerastatuses.operator.tigera.io created
+serviceaccount/tigera-operator created
+clusterrole.rbac.authorization.k8s.io/tigera-operator created
+clusterrolebinding.rbac.authorization.k8s.io/tigera-operator created
+deployment.apps/tigera-operator created
+Configuring Calico for Native BGP (no encap) mode...
+installation.operator.tigera.io/default created
+apiserver.operator.tigera.io/default created
+Waiting for pods to be ready...
+pod/kube-proxy-82jw8 condition met
+pod/kube-proxy-nqvl2 condition met
+pod/kube-proxy-xpztd condition met
+pod/tigera-operator-55585899bf-8zd5g condition met
+Waiting for calico-node pods...
+pod/calico-node-5vj4g condition met
+pod/calico-node-bqsp4 condition met
+pod/calico-node-jsnmz condition met
+Deploying iperf3: Server on cni-calico-control-plane, Client on cni-calico-worker
+node/cni-calico-control-plane untainted
+error: taint "node-role.kubernetes.io/control-plane:NoSchedule" not found
+deployment.apps/iperf3-server created
+deployment.apps/iperf3-client created
+Waiting for iperf3 pods to be ready...
+pod/iperf3-server-6944b75bfb-mtxbz condition met
+pod/iperf3-client-c745f4fdc-dk5vx condition met
+Discovering Pod IPs...
+Server IP: 10.244.82.130
+Client Pod: iperf3-client-c745f4fdc-dk5vx
+Checking connectivity...
+error: Internal error occurred: error executing command in container: failed to exec in container: failed to start exec "6411b6ce90a1a9ba16598fb91e1eb97373f5292c07ecddcd8bcc8919dfc48f0a": OCI runtime exec failed: exec failed: unable to start container process: exec: "ping": executable file not found in $PATH: unknown
+Connectivity check failed. Retrying in 10s...
+error: Internal error occurred: error executing command in container: failed to exec in container: failed to start exec "2886bbd1934e8b1a806f637f76752c95e4e54e874fb36eec06d220bb322c6ca0": OCI runtime exec failed: exec failed: unable to start container process: exec: "ping": executable file not found in $PATH: unknown
+Running TCP test and capturing system-wide cycles (45s)...
+Running UDP test (45s)...
+Measuring Latency (RTT) with ping...
+error: Internal error occurred: error executing command in container: failed to exec in container: failed to start exec "f0258fef96d2d78ea83ac44e8bee6b1efb4789e429db480ec67a3c46df3657a0": OCI runtime exec failed: exec failed: unable to start container process: exec: "ping": executable file not found in $PATH: unknown
+Capturing CPU metrics (snapshot)...
+--- Benchmark for calico Complete ---
+Results saved in results_module_1/calico_bgp

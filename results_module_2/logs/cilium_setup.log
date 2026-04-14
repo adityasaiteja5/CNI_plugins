@@ -1,0 +1,20 @@
+--- Setup Phase for cilium ---
+Tearing down old clusters...
+Deleted Networks:
+kind
+
+Waiting 60s for deep stabilization...
+Creating cluster: cni-cilium...
+Waiting 90s for node stabilization...
+Restoring CNI plugins...
+--- Installing cilium (default) ---
+🔮 Auto-detected Kubernetes kind: kind
+ℹ️  Using Cilium version 1.19.1
+🔮 Auto-detected cluster name: kind-cni-cilium
+🔮 Auto-detected kube-proxy has been installed
+--- Deploying Workload ---
+node/cni-cilium-control-plane untainted
+deployment.apps/iperf3-server created
+deployment.apps/iperf3-client created
+pod/iperf3-server-56f85cb4b8-lxjrr condition met
+pod/iperf3-client-746d857c58-d7rvd condition met

@@ -1,0 +1,11 @@
+# started on Mon Apr 13 16:18:53 2026
+
+
+ Performance counter stats for 'system wide':
+
+           536,144      cs                                                                    
+            47,370      migrations                                                            
+           536,144      context-switches                                                      
+
+      10.007329873 seconds time elapsed
+

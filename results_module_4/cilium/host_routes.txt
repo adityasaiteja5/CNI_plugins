@@ -1,0 +1,6 @@
+default via 172.18.0.1 dev eth0 
+10.244.0.0/24 via 10.244.2.147 dev cilium_host proto kernel src 10.244.2.147 mtu 1450 
+10.244.1.0/24 via 10.244.2.147 dev cilium_host proto kernel src 10.244.2.147 mtu 1450 
+10.244.2.0/24 via 10.244.2.147 dev cilium_host proto kernel src 10.244.2.147 
+10.244.2.147 dev cilium_host proto kernel scope link 
+172.18.0.0/16 dev eth0 proto kernel scope link src 172.18.0.3 

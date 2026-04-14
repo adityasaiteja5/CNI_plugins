@@ -1,0 +1,4 @@
+Start: 2026-04-13T03:53:52+0000
+HOST: iperf3-client-746d857c58-jt Loss%   Snt   Last   Avg  Best  Wrst StDev
+  1.|-- ???                       100.0    10    0.0   0.0   0.0   0.0   0.0
+  2.|-- iperf3-service.default.sv  0.0%    10    0.3   0.4   0.3   0.6   0.1

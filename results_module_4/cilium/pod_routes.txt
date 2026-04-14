@@ -1,0 +1,2 @@
+default via 10.244.2.147 dev eth0 mtu 1450 
+10.244.2.147 dev eth0 scope link 

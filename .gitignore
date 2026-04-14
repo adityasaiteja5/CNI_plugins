@@ -1,13 +1,12 @@
-# Binary files
-cilium
-scripts/cilium
+# Binary files (root only)
+/cilium
+/scripts/cilium
 
 # Lock files and process IDs
 run_all.pid
 *.lock
 
-# Logs and temporary files
-*.log
+# Temporary files (keep logs if they are part of results)
 tmp/
 .vscode/
 .idea/

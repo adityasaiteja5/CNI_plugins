@@ -1,0 +1,29 @@
+=== STARTING MODULE 1: INTERNAL PROTOCOL BASELINES ===
+Objective: Compare CPU Instruction Cost of Overlay vs Native Routing
+--- Benchmarking flannel in mode: vxlan ---
+--- Finished flannel (vxlan) ---
+--- Benchmarking flannel in mode: hostgw ---
+--- Finished flannel (hostgw) ---
+--- Benchmarking calico in mode: ipip ---
+=== STARTING MODULE 1: INTERNAL PROTOCOL BASELINES ===
+Objective: Compare CPU Instruction Cost of Overlay vs Native Routing
+--- Benchmarking flannel in mode: vxlan ---
+=== STARTING MODULE 1: INTERNAL PROTOCOL BASELINES ===
+Objective: Compare CPU Instruction Cost of Overlay vs Native Routing
+--- Benchmarking flannel in mode: vxlan ---
+=== STARTING MODULE 1: INTERNAL PROTOCOL BASELINES ===
+Objective: Compare CPU Instruction Cost of Overlay vs Native Routing
+--- Benchmarking calico in mode: ipip ---
+--- Finished calico (ipip) ---
+--- Benchmarking calico in mode: bgp ---
+--- Finished calico (bgp) ---
+--- Benchmarking cilium in mode: vxlan ---
+=== STARTING MODULE 1: INTERNAL PROTOCOL BASELINES ===
+Objective: Compare CPU Instruction Cost of Overlay vs Native Routing
+--- Benchmarking cilium in mode: vxlan ---
+--- Finished cilium (vxlan) ---
+--- Benchmarking cilium in mode: native ---
+--- Finished cilium (native) ---
+Module 0 dashboard saved to results_module_1/performance_matrix.png
+Module 1 dashboard saved to results_module_1/module1_baseline.png
+=== MODULE 1 BENCHMARKS COMPLETE ===

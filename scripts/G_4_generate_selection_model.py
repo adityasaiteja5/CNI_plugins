@@ -1,17 +1,17 @@
-# scripts/G_6_generate_selection_model.py
+# scripts/G_4_generate_selection_model.py
 import os
 import json
 import sys
 
 def parse_results(results_dir):
     model_data = {}
-    cnis = ["flannel", "calico", "G_6_cilium"]
+    cnis = ["flannel", "calico", "G_4_cilium"]
     topologies = ["east_west", "north_south", "sidecar", "multi_tier", "burst"]
     
     for cni in cnis:
         model_data[cni] = {}
         for top in topologies:
-            path = os.path.join(results_dir, cni, top, "G_6_iperf.json")
+            path = os.path.join(results_dir, cni, top, "G_4_iperf.json")
             if os.path.exists(path):
                 try:
                     with open(path, 'r') as f:
@@ -24,7 +24,7 @@ def parse_results(results_dir):
                     pass
             
             # Load Softirqs (Normalized kernel overhead)
-            irq_path = os.path.join(results_dir, cni, top, "G_6_softirqs.txt")
+            irq_path = os.path.join(results_dir, cni, top, "G_4_softirqs.txt")
             if os.path.exists(irq_path):
                 with open(irq_path, 'r') as f:
                     model_data[cni][top]["kernel_tax"] = int(f.read().strip())
@@ -44,7 +44,7 @@ def generate_recommendations(data):
     tops = ["east_west", "north_south", "sidecar", "multi_tier", "burst"]
     for top in tops:
         row = f"{top:<15} | "
-        for cni in ["flannel", "calico", "G_6_cilium"]:
+        for cni in ["flannel", "calico", "G_4_cilium"]:
             if top in data[cni]:
                 t = data[cni][top].get('throughput', 'N/A')
                 k = data[cni][top].get('kernel_tax', 'N/A')
@@ -67,7 +67,7 @@ def generate_recommendations(data):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python3 G_6_generate_selection_model.py <results_dir>")
+        print("Usage: python3 G_4_generate_selection_model.py <results_dir>")
         sys.exit(1)
     data = parse_results(sys.argv[1])
     generate_recommendations(data)

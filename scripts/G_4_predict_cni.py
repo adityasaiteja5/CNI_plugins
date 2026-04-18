@@ -1,4 +1,4 @@
-# scripts/G_6_predict_cni.py
+# scripts/G_4_predict_cni.py
 import sys
 import json
 import os
@@ -10,9 +10,9 @@ class DeepResearchEngine:
         self.cni_dna = {
             "flannel": {"throughput": 8, "latency": 7, "security": 2, "mttr": 11, "obs": 2},
             "calico":  {"throughput": 10, "latency": 8, "security": 7, "mttr": 6, "obs": 6},
-            "G_6_cilium":  {"throughput": 7, "latency": 10, "security": 10, "mttr": 5, "obs": 10}
+            "G_4_cilium":  {"throughput": 7, "latency": 10, "security": 10, "mttr": 5, "obs": 10}
         }
-        self.scaling_slopes = {"flannel": 0.04, "calico": 0.02, "G_6_cilium": 0.0001}
+        self.scaling_slopes = {"flannel": 0.04, "calico": 0.02, "G_4_cilium": 0.0001}
 
     def print_help(self):
         print("\n[ CNI RESEARCH SIMULATOR v8.1 ]")
@@ -20,7 +20,7 @@ class DeepResearchEngine:
         print("-" * 50)
 
     def simulate(self, config):
-        scores = {"flannel": 0, "calico": 0, "G_6_cilium": 0}
+        scores = {"flannel": 0, "calico": 0, "G_4_cilium": 0}
         projections = {}
         insights = []
 
@@ -29,11 +29,11 @@ class DeepResearchEngine:
         topos = workload.get('topologies', [])
         for topo in topos:
             if topo == "sidecar":
-                scores["G_6_cilium"] += 12
+                scores["G_4_cilium"] += 12
                 insights.append("- Architecture: Sidecar Mesh detected. Cilium eBPF Socket-Redirect win confirmed.")
             elif topo == "burst":
                 scores["calico"] += 6
-                scores["G_6_cilium"] += 6
+                scores["G_4_cilium"] += 6
                 insights.append("- Stability: Traffic Burst detected. Calico/Cilium eBPF-driven scaling prioritised.")
             elif topo == "east_west":
                 scores["flannel"] += 5
@@ -64,7 +64,7 @@ class DeepResearchEngine:
             
             # Saturation Check (Research Module 2/5 Saturation Boundary)
             hw_limit = (ram / 16) * 1000
-            if policies > hw_limit and cni != "G_6_cilium":
+            if policies > hw_limit and cni != "G_4_cilium":
                 scores[cni] -= 40
                 insights.append(f"- Saturation: {cni.capitalize()} has hit the ‘Iptables Wall’ on your {ram}GB RAM.")
             
@@ -74,7 +74,7 @@ class DeepResearchEngine:
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python3 G_6_predict_cni.py <scenario.json>")
+        print("Usage: python3 G_4_predict_cni.py <scenario.json>")
         sys.exit(1)
 
     try:

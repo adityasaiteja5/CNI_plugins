@@ -108,8 +108,8 @@ def plot_module0():
 
     plt.suptitle('Module 0: CNI Performance Baseline Dashboard (Group 6)', fontsize=18, fontweight='bold')
     os.makedirs("result_baseline", exist_ok=True)
-    plt.savefig("result_baseline/G_6_performance_matrix.png")
-    print("Saved result_baseline/G_6_performance_matrix.png")
+    plt.savefig("result_baseline/G_4_performance_matrix.png")
+    print("Saved result_baseline/G_4_performance_matrix.png")
 
 def plot_module1():
     cnis = ['flannel', 'calico', 'cilium']
@@ -141,8 +141,8 @@ def plot_module1():
 
     plt.suptitle('Module 1: Internal Protocol Baseline (Overlay vs Native) - Group 6', fontsize=18, fontweight='bold')
     os.makedirs("results_module_1", exist_ok=True)
-    plt.savefig("results_module_1/G_6_module1_baseline.png")
-    print("Saved results_module_1/G_6_module1_baseline.png")
+    plt.savefig("results_module_1/G_4_module1_baseline.png")
+    print("Saved results_module_1/G_4_module1_baseline.png")
 
 def plot_module2():
     cnis = ['flannel', 'calico', 'cilium']
@@ -169,8 +169,8 @@ def plot_module2():
 
     plt.suptitle('Module 2: High-Density Security Cost (Security Tax Scaling) - Group 6', fontsize=18, fontweight='bold')
     os.makedirs("results_module_2", exist_ok=True)
-    plt.savefig("results_module_2/G_6_module2_security_tax.png")
-    print("Saved results_module_2/G_6_module2_security_tax.png")
+    plt.savefig("results_module_2/G_4_module2_security_tax.png")
+    print("Saved results_module_2/G_4_module2_security_tax.png")
 
 def plot_module3():
     cnis = ["flannel", "calico", "cilium"]
@@ -187,8 +187,8 @@ def plot_module3():
         plt.text(bar.get_x() + bar.get_width()/2, yval + 50, f"{yval}ms", ha='center', va='bottom', fontweight='bold')
 
     os.makedirs("results_module_3", exist_ok=True)
-    plt.savefig("results_module_3/G_6_mttr_comparison.png")
-    print("Saved results_module_3/G_6_mttr_comparison.png")
+    plt.savefig("results_module_3/G_4_mttr_comparison.png")
+    print("Saved results_module_3/G_4_mttr_comparison.png")
 
 if __name__ == "__main__":
     plot_module0()

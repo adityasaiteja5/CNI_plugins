@@ -1,12 +1,12 @@
 #!/bin/bash
-# scripts/G_6_measure_mttr.sh
-# Usage: ./G_6_measure_mttr.sh <results_dir> <worker_to_kill> <service_ip>
+# scripts/G_4_measure_mttr.sh
+# Usage: ./G_4_measure_mttr.sh <results_dir> <worker_to_kill> <service_ip>
 
 RESULTS_DIR=$1
 WORKER=$2
 SVC_IP=$3
-LOG_FILE="$RESULTS_DIR/G_6_heartbeat.log"
-ANALYSIS_FILE="$RESULTS_DIR/G_6_mttr_analysis.txt"
+LOG_FILE="$RESULTS_DIR/G_4_heartbeat.log"
+ANALYSIS_FILE="$RESULTS_DIR/G_4_mttr_analysis.txt"
 
 mkdir -p $RESULTS_DIR
 

@@ -1,9 +1,9 @@
 #!/bin/bash
-# scripts/G_6_run_module5.sh - CNI Selection Model Research Final
+# scripts/G_4_run_module5.sh - CNI Selection Model Research Final
 
 set -e
 
-CNIS=("flannel" "calico" "G_6_cilium")
+CNIS=("flannel" "calico" "G_4_cilium")
 TOPOLOGIES=("east_west" "north_south" "sidecar" "multi_tier" "burst")
 RESULTS_DIR="results_module_5"
 
@@ -15,11 +15,11 @@ for CNI in "${CNIS[@]}"; do
     echo "==========================================="
     
     # 1. Setup Environment
-    ./scripts/G_6_benchmark.sh $CNI --setup-only
+    ./scripts/G_4_benchmark.sh $CNI --setup-only
     
     # 2. Iterate Topologies
     for TOP in "${TOPOLOGIES[@]}"; do
-        ./scripts/G_6_topology_stress.sh "$CNI" "$TOP" "$RESULTS_DIR"
+        ./scripts/G_4_topology_stress.sh "$CNI" "$TOP" "$RESULTS_DIR"
     done
     
     # 3. Teardown
@@ -27,4 +27,4 @@ for CNI in "${CNIS[@]}"; do
 done
 
 echo "Research Data Collection Complete. Generating Model..."
-# python3 scripts/G_6_generate_selection_model.py $RESULTS_DIR
+# python3 scripts/G_4_generate_selection_model.py $RESULTS_DIR

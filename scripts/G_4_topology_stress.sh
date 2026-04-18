@@ -1,5 +1,5 @@
 #!/bin/bash
-# scripts/G_6_topology_stress.sh - Topology-Aware Research Orchestrator
+# scripts/G_4_topology_stress.sh - Topology-Aware Research Orchestrator
 
 set -e
 
@@ -23,10 +23,10 @@ case $TOPOLOGY in
         
         # Capture Start softirq
         START_IRQ=$(get_softirq_delta)
-        perf stat -a -e cs,migrations,context-switches -o "$RESULTS_DIR/$CNI/$TOPOLOGY/G_6_perf.txt" sleep 10 &
-        kubectl exec "$CLIENT_POD" -- iperf3 -c "$SERVER_IP" -P 16 -t 10 --json > "$RESULTS_DIR/$CNI/$TOPOLOGY/G_6_iperf.json"
+        perf stat -a -e cs,migrations,context-switches -o "$RESULTS_DIR/$CNI/$TOPOLOGY/G_4_perf.txt" sleep 10 &
+        kubectl exec "$CLIENT_POD" -- iperf3 -c "$SERVER_IP" -P 16 -t 10 --json > "$RESULTS_DIR/$CNI/$TOPOLOGY/G_4_iperf.json"
         END_IRQ=$(get_softirq_delta)
-        echo $((END_IRQ - START_IRQ)) > "$RESULTS_DIR/$CNI/$TOPOLOGY/G_6_softirqs.txt"
+        echo $((END_IRQ - START_IRQ)) > "$RESULTS_DIR/$CNI/$TOPOLOGY/G_4_softirqs.txt"
         ;;
         
     "north_south")
@@ -34,7 +34,7 @@ case $TOPOLOGY in
         CLIENT_POD=$(kubectl get pods -l app=iperf3-client -o jsonpath='{.items[0].metadata.name}')
         SVC_IP=$(kubectl get svc iperf3-service -o jsonpath='{.spec.clusterIP}')
         
-        kubectl exec "$CLIENT_POD" -- iperf3 -c "$SVC_IP" -t 10 --json > "$RESULTS_DIR/$CNI/$TOPOLOGY/G_6_iperf.json"
+        kubectl exec "$CLIENT_POD" -- iperf3 -c "$SVC_IP" -t 10 --json > "$RESULTS_DIR/$CNI/$TOPOLOGY/G_4_iperf.json"
         ;;
 
     "sidecar")
@@ -44,7 +44,7 @@ case $TOPOLOGY in
         CLIENT_POD=$(kubectl get pods -l app=iperf3-client -o jsonpath='{.items[0].metadata.name}')
         SERVER_IP=$(kubectl get pods -l app=iperf3-server -o jsonpath='{.items[0].status.podIP}')
         
-        kubectl exec "$CLIENT_POD" -- iperf3 -c "$SERVER_IP" -t 10 --json > "$RESULTS_DIR/$CNI/$TOPOLOGY/G_6_iperf.json"
+        kubectl exec "$CLIENT_POD" -- iperf3 -c "$SERVER_IP" -t 10 --json > "$RESULTS_DIR/$CNI/$TOPOLOGY/G_4_iperf.json"
         ;;
 
     "multi_tier")
@@ -53,7 +53,7 @@ case $TOPOLOGY in
         CLIENT_POD=$(kubectl get pods -l app=iperf3-client -o jsonpath='{.items[0].metadata.name}')
         SERVER_IP=$(kubectl get pods -l app=iperf3-server -o jsonpath='{.items[0].status.podIP}')
         
-        kubectl exec "$CLIENT_POD" -- iperf3 -c "$SERVER_IP" -t 10 --json > "$RESULTS_DIR/$CNI/$TOPOLOGY/G_6_iperf.json"
+        kubectl exec "$CLIENT_POD" -- iperf3 -c "$SERVER_IP" -t 10 --json > "$RESULTS_DIR/$CNI/$TOPOLOGY/G_4_iperf.json"
         ;;
 
     "burst")

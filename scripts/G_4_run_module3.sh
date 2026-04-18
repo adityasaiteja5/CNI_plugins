@@ -1,8 +1,8 @@
 #!/bin/bash
-# scripts/G_6_run_module3.sh
+# scripts/G_4_run_module3.sh
 set -e
 
-CNIS=("flannel" "calico" "G_6_cilium")
+CNIS=("flannel" "calico" "G_4_cilium")
 FINAL_RESULTS="results_module_3"
 mkdir -p $FINAL_RESULTS/logs
 
@@ -10,7 +10,7 @@ for CNI in "${CNIS[@]}"; do
     echo "===== Starting Module 3 for $CNI ====="
     
     # 1. Setup Environment
-    ./scripts/G_6_benchmark.sh $CNI --setup-only | tee $FINAL_RESULTS/logs/${CNI}_setup.log
+    ./scripts/G_4_benchmark.sh $CNI --setup-only | tee $FINAL_RESULTS/logs/${CNI}_setup.log
     
     # 2. Pre-load images
     echo "Pre-loading images to $CNI cluster nodes via ctr..."
@@ -100,11 +100,11 @@ EOF
     # 4. Run MTTR Measurement
     # We kill worker node 1
     RESULTS_DIR="$FINAL_RESULTS/$CNI"
-    ./scripts/G_6_measure_mttr.sh $RESULTS_DIR "cni-$CNI-worker" "$SVC_IP" | tee $FINAL_RESULTS/logs/${CNI}_mttr.log
+    ./scripts/G_4_measure_mttr.sh $RESULTS_DIR "cni-$CNI-worker" "$SVC_IP" | tee $FINAL_RESULTS/logs/${CNI}_mttr.log
     
     # 5. Cleanup
     kind delete clusters --all
 done
 
 echo "Module 3 Complete. Generating plots via standardized script..."
-python3 G_6_plots.py
+python3 G_4_plots.py

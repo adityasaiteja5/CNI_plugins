@@ -1,4 +1,4 @@
-# scripts/G_6_analyze_forensics.py
+# scripts/G_4_analyze_forensics.py
 import os
 import sys
 import re
@@ -31,12 +31,12 @@ def run_suite(results_base):
     
     table_data = []
     
-    for cni in ['flannel', 'calico', 'G_6_cilium']:
+    for cni in ['flannel', 'calico', 'G_4_cilium']:
         cni_dir = os.path.join(results_base, cni)
         if not os.path.isdir(cni_dir): continue
         
-        hops = parse_mtr(os.path.join(cni_dir, 'G_6_path_mtr.txt'))
-        mtu = parse_mtu(os.path.join(cni_dir, 'G_6_mtu_result.txt'))
+        hops = parse_mtr(os.path.join(cni_dir, 'G_4_path_mtr.txt'))
+        mtu = parse_mtu(os.path.join(cni_dir, 'G_4_mtu_result.txt'))
         
         # Expert Insights based on forensics
         encap = "VXLAN (High)" if cni == 'flannel' else "IPIP/Native" if cni == 'calico' else "Native/eBPF"
@@ -67,6 +67,6 @@ def run_suite(results_base):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python3 G_6_analyze_forensics.py <results_dir>")
+        print("Usage: python3 G_4_analyze_forensics.py <results_dir>")
         sys.exit(1)
     run_suite(sys.argv[1])

@@ -1,34 +1,30 @@
 #!/bin/bash
-# scripts/G_6_run_module5.sh - Network Observability Orchestrator (Refined)
+# scripts/G_6_run_module5.sh - CNI Selection Model Research Final
 
 set -e
 
-# Calico is done; focus on Cilium eBPF
-CNIS=("G_6_cilium")
+CNIS=("flannel" "calico" "G_6_cilium")
+TOPOLOGIES=("east_west" "north_south" "sidecar" "multi_tier" "burst")
 RESULTS_DIR="results_module_5"
+
 mkdir -p $RESULTS_DIR
 
 for CNI in "${CNIS[@]}"; do
     echo "==========================================="
-    echo "===== Starting Module 5 for $CNI ====="
+    echo "===== Researching Saturation for $CNI ====="
     echo "==========================================="
     
-    # Setup Cluster
+    # 1. Setup Environment
     ./scripts/G_6_benchmark.sh $CNI --setup-only
     
-    # Get client pod
-    CLIENT_POD=$(kubectl get pods -l app=iperf3-client -o jsonpath='{.items[0].metadata.name}')
+    # 2. Iterate Topologies
+    for TOP in "${TOPOLOGIES[@]}"; do
+        ./scripts/G_6_topology_stress.sh "$CNI" "$TOP" "$RESULTS_DIR"
+    done
     
-    # Run Background Load
-    echo "Starting background traffic load..."
-    SVC_IP=$(kubectl get svc iperf3-service -o jsonpath='{.spec.clusterIP}')
-    kubectl exec $CLIENT_POD -- iperf3 -c $SVC_IP -t 20 > /dev/null &
-    
-    # Run Observability Capture
-    ./scripts/G_6_measure_observability.sh "$RESULTS_DIR/$CNI" "$CNI" "default" "$CLIENT_POD"
-    
-    # Teardown
+    # 3. Teardown
     kind delete clusters --all
 done
 
-echo "Observability data capture complete. Running Analysis..."
+echo "Research Data Collection Complete. Generating Model..."
+# python3 scripts/G_6_generate_selection_model.py $RESULTS_DIR

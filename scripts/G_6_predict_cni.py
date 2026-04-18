@@ -6,7 +6,7 @@ import os
 class DeepResearchEngine:
     def __init__(self):
         # Research DNA [Throughput, Latency, Security, MTTR, Observability]
-        # Derived from Module 1-6 experimental results.
+        # Derived from Module 1-5 experimental results.
         self.cni_dna = {
             "flannel": {"throughput": 8, "latency": 7, "security": 2, "mttr": 11, "obs": 2},
             "calico":  {"throughput": 10, "latency": 8, "security": 7, "mttr": 6, "obs": 6},
@@ -62,7 +62,7 @@ class DeepResearchEngine:
             slope_penalty = policies * self.scaling_slopes[cni]
             total_lat = lat + slope_penalty
             
-            # Saturation Check (Research Module 2/6 Saturation Boundary)
+            # Saturation Check (Research Module 2/5 Saturation Boundary)
             hw_limit = (ram / 16) * 1000
             if policies > hw_limit and cni != "G_6_cilium":
                 scores[cni] -= 40

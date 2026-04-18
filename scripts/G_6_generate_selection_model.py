@@ -33,7 +33,7 @@ def parse_results(results_dir):
 
 def generate_recommendations(data):
     print("\n" + "="*80)
-    print("           CNI SELECTION MODEL & RESEARCH CONTRIBUTION (MODULE 6)")
+    print("           CNI SELECTION MODEL & RESEARCH CONTRIBUTION (MODULE 5)")
     print("="*80)
     
     print("\n1. TOPOLOGY-SPECIFIC PERFORMANCE MATRIX (Gbps / Kernel Tax)")

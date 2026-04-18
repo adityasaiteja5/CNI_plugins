@@ -14,4 +14,3 @@ The **Inference Engine** uses a 1-10 scale to weigh your research priorities. Us
 | **Latency** | p99 Packet Processing Floor | Latency-sensitive financial apps. |
 | **Security** | Policy Scaling Density | Zero-trust clusters with 1000+ rules. |
 | **MTTR** | Recovery/Self-Healing Speed | Spot-instance clusters with high churn. |
-| **Observability**| Data-plane Introspection | eBPF Flow-capture requirements (Hubble). |

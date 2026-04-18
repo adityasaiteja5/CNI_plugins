@@ -2,7 +2,7 @@
 # scripts/G_6_run_all.sh
 
 CNIS=("flannel" "calico" "G_6_cilium")
-LOG_DIR="results/logs"
+LOG_DIR="result_baseline/logs"
 mkdir -p $LOG_DIR
 
 echo "=== STARTING FULL CNI COMPARISON MATRIX ===" | tee -a $LOG_DIR/full_run.log

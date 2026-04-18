@@ -3,7 +3,7 @@
 
 CNI=$1
 ARG2=$2
-RESULTS_BASE=${RESULTS_BASE:-results}
+RESULTS_BASE=${RESULTS_BASE:-result_baseline}
 
 # Parse Mode and Flags
 SETUP_ONLY=false

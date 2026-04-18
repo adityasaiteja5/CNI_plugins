@@ -107,9 +107,9 @@ def plot_module0():
         axes[row, col].set_ylabel(unit)
 
     plt.suptitle('Module 0: CNI Performance Baseline Dashboard (Group 6)', fontsize=18, fontweight='bold')
-    os.makedirs("results", exist_ok=True)
-    plt.savefig("results/G_6_performance_matrix.png")
-    print("Saved results/G_6_performance_matrix.png")
+    os.makedirs("result_baseline", exist_ok=True)
+    plt.savefig("result_baseline/G_6_performance_matrix.png")
+    print("Saved result_baseline/G_6_performance_matrix.png")
 
 def plot_module1():
     cnis = ['flannel', 'calico', 'cilium']
